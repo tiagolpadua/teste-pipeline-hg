@@ -27,3 +27,11 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          ftp-server: ftp://162.241.203.152/public_html/react-static
+          ftp-username: merc4902
+          ftp-password: ${{ secrets.HG_FTP_PASS }}
+          local-dir: build/
