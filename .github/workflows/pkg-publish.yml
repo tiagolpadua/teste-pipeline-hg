@@ -7,26 +7,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v1
+        with:
+          fetch-depth: 2
+
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
         with:
           node-version: "12.x"
           registry-url: "https://npm.pkg.github.com"
-          # Defaults to the user or organization that owns the workflow file
-          # scope: "@octocat"
-      - run: npm install
-      - run: npm run build
-      - run: npm pack
 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v1
-        with:
-          name: build
-          path: build
+      - name: Build Project
+        run: |
+          npm install
+          npm run build --if-present
 
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: List output files
+        run: ls
 
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
@@ -34,4 +30,15 @@ jobs:
           ftp-server: ftp://162.241.203.152/public_html/react-static
           ftp-username: merc4902
           ftp-password: ${{ secrets.HG_FTP_PASS }}
-          local-dir: build/
+          local-dir: build
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: build
+          path: build
+
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
