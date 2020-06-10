@@ -18,7 +18,7 @@ function App() {
         >
           Aprenda React
         </a>
-        <span>Muito Legal</span>
+        <span>Muito Legal Mesmo!</span>
       </header>
     </div>
   );
