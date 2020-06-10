@@ -21,8 +21,8 @@ jobs:
       - name: Archive production artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: tiagolpadua-teste-pipeline-hg.tgz
-          path: tiagolpadua-teste-pipeline-hg-*.tgz
+          name: build
+          path: build
 
       - run: npm publish
         env:
