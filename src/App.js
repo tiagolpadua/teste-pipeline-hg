@@ -18,7 +18,7 @@ function App() {
         >
           Aprenda React
         </a>
-        <span>Very Cool</span>
+        <span>Muito Legal</span>
       </header>
     </div>
   );
