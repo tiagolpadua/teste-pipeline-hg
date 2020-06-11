@@ -35,6 +35,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
+  "homepage": "https://mercadaodoboi.com.br/react-static",
   "devDependencies": {
     "release-it": "^13.6.2"
   }
