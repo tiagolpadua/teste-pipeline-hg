@@ -18,7 +18,7 @@ function App() {
         >
           Aprenda React
         </a>
-        <span>Muito Legal Mesmo!: 0.3.10</span>
+        <span>Muito Legal De Verdade!: 0.3.11</span>
       </header>
     </div>
   );
