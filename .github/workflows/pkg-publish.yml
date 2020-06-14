@@ -1,7 +1,5 @@
 name: Node.js Package
-# on:
-#  release:
-#    types: [created]
+
 on:
   push:
     branchs: [master]
@@ -23,16 +21,7 @@ jobs:
       - name: Build Project
         run: |
           npm install
-          npm run build --if-present
-
-      # - name: List output files
-      #   run: ls
-
-      # - name: git status
-      #   run: git status -uno --porcelain
-
-      - name: reset package-lock.json
-        run: git checkout package-lock.json
+          npm run build
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v1
@@ -44,11 +33,3 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
-        with:
-          ftp-server: ftp://162.241.203.152/public_html/react-static
-          ftp-username: merc4902
-          ftp-password: ${{ secrets.HG_FTP_PASS }}
-          local-dir: build/
