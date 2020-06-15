@@ -1,11 +1,12 @@
 {
   "name": "@tiagolpadua/teste-pipeline-hg",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "private": false,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "eslint src",
     "eject": "react-scripts eject",
     "release": "release-it --dry-run"
   },

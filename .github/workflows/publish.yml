@@ -18,18 +18,25 @@ jobs:
           node-version: "12.x"
           registry-url: "https://npm.pkg.github.com"
 
-      - name: Build Project
-        run: |
-          npm install
-          npm run build
+      - name: Install Dependencies
+        run: npm install
 
-      - name: Archive production artifacts
+      - name: Lint Project
+        run: npm run lint
+
+      - name: Run Tests
+        run: npm test
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v1
         with:
           name: build
           path: build
 
-      - name: Publish
+      - name: Publish Artifacts
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
