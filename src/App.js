@@ -16,9 +16,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Aprenda React
+          Aprender React
         </a>
-        <span>Novo teste de pipeline para criar versão!: 0.3.16</span>
+        <span>Novo teste de pipeline para criar versão!: 0.3.17</span>
       </header>
     </div>
   );
