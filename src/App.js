@@ -18,7 +18,7 @@ function App() {
         >
           Aprenda React
         </a>
-        <span>Muito Legal de verade!: 0.3.15</span>
+        <span>Novo teste de pipeline para criar versão!: 0.3.16</span>
       </header>
     </div>
   );
