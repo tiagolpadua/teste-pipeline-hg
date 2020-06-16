@@ -1,6 +1,6 @@
 {
   "name": "@tiagolpadua/teste-pipeline-hg",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "private": false,
   "scripts": {
     "start": "react-scripts start",
